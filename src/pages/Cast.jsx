@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
-import { SearchCastAPI, IMG_URL } from 'components/services/SearchAPI';
+import { SearchCastAPI, IMG_URL } from 'services/SearchAPI';
 import { useState, useEffect } from 'react';
 import Placeholder from '../pictures/avatar.png';
 
-export const Cast = () => {
+const Cast = () => {
   const [actors, setActors] = useState([]);
   const { movieId } = useParams();
 
@@ -30,3 +30,5 @@ export const Cast = () => {
     </ul>
   );
 };
+
+export default Cast;

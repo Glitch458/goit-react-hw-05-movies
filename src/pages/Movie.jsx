@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { MovieIdAPI, IMG_URL } from 'components/services/SearchAPI';
+import { MovieIdAPI, IMG_URL } from 'services/SearchAPI';
 import { Link, useParams, Outlet, useNavigate } from 'react-router-dom';
 
-export const Movie = () => {
+const Movie = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
   const nav = useNavigate();
@@ -52,3 +52,5 @@ export const Movie = () => {
     </>
   );
 };
+
+export default Movie

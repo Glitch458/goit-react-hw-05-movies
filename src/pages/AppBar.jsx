@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom';
 
-export const AppBar = () => {
+const AppBar = () => {
   return (
     <header>
       <nav className="header">
@@ -21,3 +21,5 @@ export const AppBar = () => {
     </header>
   );
 };
+
+export default AppBar;

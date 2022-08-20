@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { SearchReviewAPI } from 'components/services/SearchAPI';
+import { SearchReviewAPI } from 'services/SearchAPI';
 import { useParams } from 'react-router-dom';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
 
@@ -25,3 +25,5 @@ export const Reviews = () => {
     </ul>
   );
 };
+
+export default Reviews;

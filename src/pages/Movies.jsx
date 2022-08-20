@@ -1,8 +1,8 @@
-import { MovieSearchAPI } from 'components/services/SearchAPI';
+import { MovieSearchAPI } from 'services/SearchAPI';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-export const Movies = () => {
+const Movies = () => {
   const [searchName, setSearchName] = useState('');
   const [moviesList, setMoviesList] = useState([]);
   const { movieId } = useParams();
@@ -51,3 +51,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { TrendingSearchAPI } from 'components/services/SearchAPI';
+import { TrendingSearchAPI } from 'services/SearchAPI';
 
-export const Trending = () => {
+const Trending = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     TrendingSearchAPI().then(movies => setMovies(movies));
@@ -21,3 +21,5 @@ export const Trending = () => {
     </div>
   );
 };
+
+export default Trending;
