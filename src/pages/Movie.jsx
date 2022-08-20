@@ -8,8 +8,9 @@ const Movie = () => {
   const nav = useNavigate();
 
   useEffect(() => {
-    console.log('fetch');
-    MovieIdAPI(movieId).then(movie => setMovie(movie));
+    if (movieId) {
+      MovieIdAPI(movieId).then(movie => setMovie(movie));
+    }
   }, [movieId]);
 
   return (
@@ -20,7 +21,10 @@ const Movie = () => {
             Go back
           </button>
           <div className="main">
-            <img src={IMG_URL + movie.poster_path} alt={movie.tagline} />
+            <img
+              src={movie.poster_path && IMG_URL + movie.poster_path}
+              alt={movie.tagline}
+            />
             <div>
               <h2>{movie.title}</h2>
               <p>User score: {movie.vote_average}</p>
@@ -53,4 +57,4 @@ const Movie = () => {
   );
 };
 
-export default Movie
+export default Movie;

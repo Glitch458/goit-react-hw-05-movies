@@ -7,7 +7,6 @@ const Movie = lazy(() => import('./pages/Movie'));
 const Movies = lazy(() => import('./pages/Movies'));
 const Cast = lazy(() => import('./pages/Cast'));
 const Reviews = lazy(() => import('./pages/Reviews'));
-console.log(Trending);
 
 const App = () => {
   return (
