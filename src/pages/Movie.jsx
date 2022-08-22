@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { MovieIdAPI, IMG_URL } from 'services/SearchAPI';
 import { Link, useParams, Outlet, useNavigate } from 'react-router-dom';
 
@@ -50,7 +50,9 @@ const Movie = () => {
             </ul>
             <hr />
           </div>
-          <Outlet />
+          <Suspense fallback={<p>Loading</p>}>
+            <Outlet />
+          </Suspense>
         </div>
       )}
     </>

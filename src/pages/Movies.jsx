@@ -1,25 +1,32 @@
 import { MovieSearchAPI } from 'services/SearchAPI';
-import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
-  const [searchName, setSearchName] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchName, setSearchName] = useState(searchParams.get('query') || '');
   const [moviesList, setMoviesList] = useState([]);
-  const { movieId } = useParams();
+
+  useEffect(() => {
+    if (searchName !== '') {
+      handleSubmit();
+    }
+  }, []);
 
   const handleInput = e => {
     setSearchName(e.currentTarget.value);
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  function handleSubmit(e) {
+    if (e) e.preventDefault();
 
     if (searchName.trim() === '') {
       return alert('Please, input search name');
     }
 
     MovieSearchAPI(searchName).then(movies => setMoviesList(movies.results));
-  };
+    setSearchParams({ query: searchName });
+  }
 
   return (
     <>
